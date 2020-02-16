@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en+us">
+<head>
+    <meta charset= "UTF-8">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="assets/js/index.js">
+</head>
+<body>
+    <div class="header-container">
+        <h1 class="header-text">Password Generator</h1>
+    </div>
+    <div class="generator-container">
+        <h2 class="generator-header">Generate a Password</h2>
+        
+        <input type="text" id="password">
+        <br>
+
+        <input type="range" min ="0" max="128" name="slider" id="slider">
+        <br>
+        
+        <button class="generate-button" type="button">Generate Password</button>
+
+        <div id="length"></div>
+
+        <button class="copy-button" type="button">Copy Password to Clipboard</button>
+    </div>
+</body>
+</html>
