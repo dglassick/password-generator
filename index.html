@@ -20,7 +20,23 @@
 
         <div class="alert" id="alert"><span class="message" id="message"></div>
         <br>
+        
+        <input type="checkbox" class = "confirmLowercase" id ="confirmLowercase">
+        <label>Lowercase</label>
+        <br>
 
+        <input type="checkbox" class = "confirmUppercase" id ="confirmUppercase">
+        <label>Uppercase</label>
+        <br>
+        <input type="checkbox" class = "confirmNumbers" id ="confirmNumbers">
+        <label>Numbers</label>
+        <br>
+        <input type="checkbox" class = "confirmSpecial" id ="confirmSpecial">
+        <label>Special Characters</label>
+        <br>
+        <input type ="number" class = "passwordLen" id ="passwordLen">
+        <label>Length of Password</label>
+        <br>
 
         <br>
         <button class="generateButton" type="button" id="generateButton">Generate Password</button>
@@ -32,7 +48,14 @@
     <script class="generator-box">
         // Creates 5 arrays that will be randomly chosen from
 
+        document.getElementById("generateButton").addEventListener("click", generateButton) = generatePassword();
 
+
+        
+        var specialCharacters2 = document.getElementById("confirmLowercase").addEventListener("click",confirmLowerCase2);
+        var numbers2 = document.getElementById("confirmUppercase").addEventListener("click",confirmUppercase2);
+        var Lowercase2 = document.getElementById("confirmNumbers").addEventListener("click",confirmNumbers2);
+        var Special2 = document.getElementById("confirmSpecial").addEventListener("click",confirmSpecial2);
         var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
             "r", "s", "t", "u", "v", "w", "x", "y", "z"
         ];
@@ -42,48 +65,68 @@
         var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
         var specialcharacters = ["?", "!", "@", "$", "&", "*", "#"];
         var pass = "";
-        var confirmLowerCase = confirm("Do you want to include lowercase letters in your password?");
-        var confirmUpperCase = confirm("Do you want to include uppercase letters in your password?");
-        var confirmNumbers = confirm("Do you want to include numbers your password?");
-        var confirmSpecial = confirm("Do you want to include special characters in your password?");
-        var lengthinput = prompt("How many characters do you want your password to be?");
-        var passwordCharSet = "";
+        var LowercaseY = document.getElementById("confirmLowercase").checked;
+        var UppercaseY = document.getElementById("confirmUppercase").checked;
+        var NumbersY = document.getElementById("confirmNumbers").checked ;
+        var specialCharactersY = document.getElementById("confirmSpecial").checked;
+        var random
+        function confirmLowerCase2 (){
+            if(LowercaseY == true){
+                LowercaseY = false;
+            }
+            else{
+                LowercaseY = true;
+        }
+        }
 
-        // create for loop to choose password characters and length
-        for (var i = 0; i <= plength; i++){
+        function confirmUppercase2(){
+            if(UppercaseY == true){
+                UppercaseY = false;
+            }
+            else{
+                UppercaseY = true;
+        }
+        }
 
-            generateButton.addEventListener("click", generate);
-        var confirmLowerCase = confirm("Do you want to include lowercase letters in your password?");
-        var confirmUpperCase = confirm("Do you want to include uppercase letters in your password?");
-        var confirmNumbers = confirm("Do you want to include numbers your password?");
-        var confirmSpecial = confirm("Do you want to include special characters in your password?");
-        var lengthinput = prompt("How many characters do you want your password to be?");
-        var passwordCharSet = "";
+        function confirmNumbers2(){
+            if(NumbersY == true){
+                NumbersY = false;
+            }
+            else{
+                NumbersY = true;
+        }
+        }
+
+        function confirmSpecial2(){
+            if(specialCharactersY == true){
+                specialCharactersY = false;
+            }
+            else{
+                specialCharactersY = true;
+        }
+        }
 
         function generatePassword() {
-            pass = "";
-            passwordCharSet = "";
-            if (confirmLowerCase.confirm) {
-                passwordCharSet += lowercase;
-            }
-            if (confirmUpperCase.confirm) {
-                passwordCharSet += uppercase;
-            }
-            if (confirmNumbers.confirm) {
-                passwordCharSet += numbers;
-            }
-            if (confirmSpecial.confirm) {
-                passwordCharSet += specialcharacters;
-            }
-            plength = Number(lengthInput.value);
+            if (specialCharactersY == true && NumbersY == true && UppercaseY == true && LowercaseY == true) {
+                var genPassword = [];
+                for(var i = 0; i < passwordLength; i++){
+                    random = Math.round(Math.random() * 3);
+                    if(random == 0){
+                        yourpassword.push(lowercase[Math.random(Math.random() * (lowercase.length - 1))]);
+                    }
+                    if(random = 1){
+                        yourpassword.push(uppercase[Math.round(Math.random() * (uppercase.length - 1))]);
+                    }
+                    if(random = 2){
+                        yourpassword.push(specialcharacters[Math.round(Math.random() * (specialcharacters.length - 1))]);
+                    }
+                    if(random = 3){
+                        yourpassword.push(numbers[Math.round(Math.random() * (numbers.length - 1))]);
+                    }
 
-            for (i = 0; i < plength; i++) {
-                userPassword += passwordCharSet.charAt(
-                    Math.floor(Math.random() * passwordCharSet.length));
-            }
-        }
-                    
-    }
+
+                }}}
+
     </script>
 
 </body>
