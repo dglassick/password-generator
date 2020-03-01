@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Random Password Generator</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="assets/js/index.js">
 </head>
 
 <body>
@@ -20,114 +19,34 @@
 
         <div class="alert" id="alert"><span class="message" id="message"></div>
         <br>
+
+        <table id="checkVariables">
+            <input type="checkbox"  id="lowercase">
+            <label>Lowercase</label>
+            <br>
+            <input type="checkbox" id="uppercase">
+            <label>Uppercase</label>
+            <br>
+            <input type="checkbox" id="numbers">
+            <label>Numbers</label>
+            <br>
+            <input type="checkbox" id="specialCharacters">
+            <label>Special Characters</label>
+            <br>
+            <input type="number" id="passwordLen">
+            <label>Length of Password</label>
+        </table>
+        <br>
+
+        <br>
+        <button  type="button" class="generate" id="generateButton">Generate Password</button>
+
+
+        <button  type="button" class="copy" id="copyButton">Copy Password to Clipboard</button>
         
-        <input type="checkbox" class = "confirmLowercase" id ="confirmLowercase">
-        <label>Lowercase</label>
-        <br>
-
-        <input type="checkbox" class = "confirmUppercase" id ="confirmUppercase">
-        <label>Uppercase</label>
-        <br>
-        <input type="checkbox" class = "confirmNumbers" id ="confirmNumbers">
-        <label>Numbers</label>
-        <br>
-        <input type="checkbox" class = "confirmSpecial" id ="confirmSpecial">
-        <label>Special Characters</label>
-        <br>
-        <input type ="number" class = "passwordLen" id ="passwordLen">
-        <label>Length of Password</label>
-        <br>
-
-        <br>
-        <button class="generateButton" type="button" id="generateButton">Generate Password</button>
-
-
-        <button class="copyButton" type="button" id="copyButton">Copy Password to Clipboard</button>
     </div>
 
-    <script class="generator-box">
-        // Creates 5 arrays that will be randomly chosen from
-
-        document.getElementById("generateButton").addEventListener("click", generateButton) = generatePassword();
-
-
-        
-        var specialCharacters2 = document.getElementById("confirmLowercase").addEventListener("click",confirmLowerCase2);
-        var numbers2 = document.getElementById("confirmUppercase").addEventListener("click",confirmUppercase2);
-        var Lowercase2 = document.getElementById("confirmNumbers").addEventListener("click",confirmNumbers2);
-        var Special2 = document.getElementById("confirmSpecial").addEventListener("click",confirmSpecial2);
-        var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
-            "r", "s", "t", "u", "v", "w", "x", "y", "z"
-        ];
-        var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-            "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        ];
-        var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-        var specialcharacters = ["?", "!", "@", "$", "&", "*", "#"];
-        var pass = "";
-        var LowercaseY = document.getElementById("confirmLowercase").checked;
-        var UppercaseY = document.getElementById("confirmUppercase").checked;
-        var NumbersY = document.getElementById("confirmNumbers").checked ;
-        var specialCharactersY = document.getElementById("confirmSpecial").checked;
-        var random
-        function confirmLowerCase2 (){
-            if(LowercaseY == true){
-                LowercaseY = false;
-            }
-            else{
-                LowercaseY = true;
-        }
-        }
-
-        function confirmUppercase2(){
-            if(UppercaseY == true){
-                UppercaseY = false;
-            }
-            else{
-                UppercaseY = true;
-        }
-        }
-
-        function confirmNumbers2(){
-            if(NumbersY == true){
-                NumbersY = false;
-            }
-            else{
-                NumbersY = true;
-        }
-        }
-
-        function confirmSpecial2(){
-            if(specialCharactersY == true){
-                specialCharactersY = false;
-            }
-            else{
-                specialCharactersY = true;
-        }
-        }
-
-        function generatePassword() {
-            if (specialCharactersY == true && NumbersY == true && UppercaseY == true && LowercaseY == true) {
-                var genPassword = [];
-                for(var i = 0; i < passwordLength; i++){
-                    random = Math.round(Math.random() * 3);
-                    if(random == 0){
-                        yourpassword.push(lowercase[Math.random(Math.random() * (lowercase.length - 1))]);
-                    }
-                    if(random = 1){
-                        yourpassword.push(uppercase[Math.round(Math.random() * (uppercase.length - 1))]);
-                    }
-                    if(random = 2){
-                        yourpassword.push(specialcharacters[Math.round(Math.random() * (specialcharacters.length - 1))]);
-                    }
-                    if(random = 3){
-                        yourpassword.push(numbers[Math.round(Math.random() * (numbers.length - 1))]);
-                    }
-
-
-                }}}
-
-    </script>
+    <script src="./assets/js/index.js"></script>
 
 </body>
 
