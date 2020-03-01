@@ -16,7 +16,7 @@ background-color: white;
 width: 720px;
 margin: 0 auto;
 padding: 30px;
-height: 350px;
+height: 450px;
 }
 
 .generator-header {
@@ -56,10 +56,15 @@ padding: 10px;
 }
 
 .generateBox {
-width: 50%;
-margin: auto 0;
+width: 70%;
+margin: 0 auto;
+height: 100px;
+word-wrap: break-word;
 }
 
+placeholder {
+
+}
 #password {
     margin-left: 35%;
     padding: 10px;

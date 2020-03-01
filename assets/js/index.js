@@ -70,3 +70,11 @@ function passwordMixer(value) {
    document.getElementById("yourpassword").placeholder = newPassword
    console.log(newPassword);
 };
+
+// Click function to copy the password to clipboard
+function copyFunction(){
+var copyText = document.getElementById("yourpassword").placeholder;
+copyText.select();
+document.execCommand("copy");
+alert("Copied the text: " + copyText.value);
+};
