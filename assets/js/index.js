@@ -67,6 +67,6 @@ function passwordMixer(value) {
    // passwordArray[randomNumber][randomNumber2]
    newPassword += passwordArray[randomNumber][randomNumber2];
    }
-   newPassword.text = yourpasswordEl
+   document.getElementById("yourpassword").placeholder = newPassword
    console.log(newPassword);
 };
