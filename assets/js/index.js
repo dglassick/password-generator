@@ -5,7 +5,7 @@ var confirmNumbersEl = document.getElementById('numbers');
 var confirmSpecialEl = document.getElementById('specialCharacters');
 var lengthEl = document.getElementById('passwordLen');
 var generateButtonEl = document.getElementById('generateButton');
-var copyButton = document.getElementById('copyButton');
+var copyButtonEl = document.getElementById('copyButton');
 // var passwordLength;
 // var passwordLengthValue;
 // var passwordLengthFinal;
@@ -18,7 +18,6 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 ];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialCharacters = ["?", "!", "@", "$", "&", "*", "#"];
-var passwordArray = [];
 
 
 
@@ -36,6 +35,7 @@ generateButtonEl.addEventListener("click", function () {
 
 function generatePassword(lowerLetters, upperletters, numbersRan, symbols, passwordLength) {
    var pass = "";
+   var passwordArray = [];
    if(lowerLetters === true) {
       passwordArray.push(lowercase)
       console.log(passwordArray)
@@ -52,13 +52,19 @@ function generatePassword(lowerLetters, upperletters, numbersRan, symbols, passw
       passwordArray.push(specialCharacters)
       console.log(passwordArray)
    }
+
+   // if(lowerletters === false && upperletters === false && numbersRan === false && symbols === false){
+   if(passwordArray.length === 0) {
+   alert('Please select an option for password.');
+   }
+
    console.log(passwordLength);
-   passwordMixer(passwordLength);
+   passwordMixer(passwordLength, passwordArray);
 };
 
 // function to generate the password
 
-function passwordMixer(value) {
+function passwordMixer(value, passwordArray) {
    console.log(value);
    var newPassword = "";
    for(var i = 0; i < value; i++){
@@ -67,14 +73,15 @@ function passwordMixer(value) {
    // passwordArray[randomNumber][randomNumber2]
    newPassword += passwordArray[randomNumber][randomNumber2];
    }
-   document.getElementById("yourpassword").placeholder = newPassword
+   document.getElementById("yourpassword").value = newPassword
    console.log(newPassword);
 };
 
 // Click function to copy the password to clipboard
-function copyFunction(){
-var copyText = document.getElementById("yourpassword").placeholder;
-copyText.select();
+copyButtonEl.addEventListener('click', function (){
+var copyText = document.getElementById("yourpassword").select();
+
 document.execCommand("copy");
-alert("Copied the text: " + copyText.value);
-};
+alert("Your password has been copied!");
+console.log(document.getElementById("yourpassword").value)
+});
